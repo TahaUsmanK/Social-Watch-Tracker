@@ -7,26 +7,18 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        background: resolve(__dirname, 'src/background.ts'),
-        contentScript: resolve(__dirname, 'src/contentScript.tsx'),
         options: resolve(__dirname, 'options.html')
       },
       output: {
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
-        assetFileNames: '[name].[ext]',
-        format: 'iife'
+        assetFileNames: '[name].[ext]'
       }
     },
     outDir: 'dist',
-    emptyOutDir: true,
+    emptyOutDir: false,
     copyPublicDir: false,
     target: 'es2020',
     minify: false
-  },
-  server: {
-    host: '0.0.0.0',
-    port: 12000,
-    allowedHosts: true
   }
 });

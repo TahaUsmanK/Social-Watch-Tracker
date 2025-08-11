@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && npm run copy-assets",
+    "build": "npm run build-background && npm run build-content && npm run build-options && npm run copy-assets",
+    "build-background": "tsc && vite build --config vite.scripts.config.ts",
+    "build-content": "vite build --config vite.content.config.ts",
+    "build-options": "vite build --config vite.options.config.ts",
     "copy-assets": "cp manifest.json dist/ && cp src/overlay/overlay.css dist/",
     "preview": "vite preview",
     "type-check": "tsc --noEmit"
